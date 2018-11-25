@@ -5,14 +5,14 @@ let NotasServices = function (model) {
 
     this.getAllNotas = function () {
         return model.cabecalho.findAll({
-            attributes: ['nunota', 'cod_user', 'tipmov', 'vlr_nota']
+            attributes: ['nunota', 'id_usuario', 'tipmov', 'vlr_nota']
         });
     }
     this.getAllNotasByUsuario = function (idUsuario) {
         return model.cabecalho.findAll({
-            attributes: ['nunota', 'cod_user', 'tipmov', 'vlr_nota'],
+            attributes: ['nunota', 'id_usuario', 'tipmov', 'vlr_nota'],
             where: {
-                cod_user: idUsuario
+                id_usuario: idUsuario
             }
         });
     }
@@ -23,7 +23,7 @@ let NotasServices = function (model) {
     }
     this.getNotasByTipoMovimentacao = function (tipoMovi) {
         return model.cabecalho.findAll({
-            attributes: ['nunota', 'cod_user', 'vlr_nota'],
+            attributes: ['nunota', 'id_usuario', 'vlr_nota'],
             where: {
                 tipmov: tipoMovi
             }

@@ -44,6 +44,11 @@ module.exports = function (model) {
         });
     });*/
 
+
+    /*Lista de produtos produzidos no mes
+     {tipoProduto: ""String"", nome: ""string"", mes: ""Int"", qnt: ""Double""}
+*/
+
     router.get('/getProducaoByTurno', function (req, res) {
         producaoServices.getProducaoByTurno(req.query.turno).then(function (result) {
             res.json(result);
@@ -112,6 +117,13 @@ module.exports = function (model) {
             res.json(result);
         });
     });
+
+     router.get('/getProducaoItemByMes', function (req, res) {
+        itemServices.getProducaoItemByMes(req.query.ano, req.query.mes).then(function (result) {
+            res.json(result);
+        });
+    });
+
 
     //////API NOTAS
 

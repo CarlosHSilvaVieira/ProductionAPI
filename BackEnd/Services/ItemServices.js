@@ -32,5 +32,23 @@ let ItemServices = function (model) {
             attributes: ['id_item', 'qtd_neg', 'ent_sai', 'data_lancamento', 'origem'],
         });
     }
+    this.getProducaoItemByMes = function (ano, mes) {    
+       
+       model.item.findAll({
+            attributes: ['qtd_neg', 'id_produto', 'origem', 'data_lancamento'],
+            where: {
+                data_lancamento: {
+                    [sequelize.Op.and]: [
+                        sequelize.where(sequelize.fn('YEAR', sequelize.col('data_lancamento')), ano),
+                        sequelize.where(sequelize.fn('MONTH', sequelize.col('data_lancamento')), mes),
+                     ]
+                }
+            , origem:'P'}
+        }); 
+    }
+
+    /*Lista de produtos produzidos no mes 
+    {tipoProduto: ""String"", nome: ""string"", mes: ""Int"", qnt: ""Double""}
+*/
 }
 module.exports = ItemServices;

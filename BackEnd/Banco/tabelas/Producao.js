@@ -7,11 +7,12 @@ module.exports = function (sequelize, Datatypes) {
             qtd_mp: Datatypes.DOUBLE,
             data_producao: Datatypes.DATE,
             turno: Datatypes.STRING(10),
-            nunota: Datatypes.INTEGER,
+            
             id_producao: {
                 type: Datatypes.INTEGER,
                 primaryKey: true
-            }
+            },
+            id_qualidade: Datatypes.INTEGER
         }, { freezeTableName: true });
     return producao;
 }

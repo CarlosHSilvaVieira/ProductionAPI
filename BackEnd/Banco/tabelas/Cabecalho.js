@@ -6,7 +6,7 @@ module.exports = function (sequelize, Datatypes) {
                 type: Datatypes.INTEGER,
                 primaryKey: true
             },
-            cod_user: Datatypes.INTEGER,
+            id_usuario: Datatypes.INTEGER,
             tipmov: Datatypes.STRING(1),
             vlr_nota: Datatypes.DOUBLE
         }, { freezeTableName: true });
