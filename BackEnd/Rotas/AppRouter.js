@@ -3,7 +3,7 @@ module.exports = function (model) {
     var _ = require('lodash');
     var express = require('express');
     var app = express();
-    var port = 9000;
+    var port = process.env.PORT || 3000;
     var router = express.Router();
 
     var ProducaoServices = require('../Services/ProducaoServices');
@@ -23,6 +23,9 @@ module.exports = function (model) {
 
     //////API DE PRODUCAO
 
+    router.get('/', function(req, res, next) {
+        res.status(200).send(`Production's API running on port ${port} `)
+    })
 
 
     /*            TODO 
