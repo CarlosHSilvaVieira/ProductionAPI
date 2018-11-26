@@ -1,6 +1,6 @@
 module.exports = function (sequelize, Datatypes) {
 
-    const produto = sequelize.define('Produto',
+    var produto = sequelize.define('Produto',
         {
             id_prod: {
                 type: Datatypes.INTEGER,

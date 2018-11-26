@@ -1,7 +1,7 @@
-let ProdutoServices = function (model) {
+var ProdutoServices = function (model) {
 
-    const sequelize = require('sequelize');
-    let _ = require('lodash');
+    var sequelize = require('sequelize');
+    var _ = require('lodash');
 
     this.getDescricaoProduto = function (idProduto) {
         return model.produto.findAll({

@@ -1,6 +1,6 @@
 module.exports = function (sequelize, Datatypes) {
 
-    const producao = sequelize.define('Producao',
+    var producao = sequelize.define('Producao',
         {
             id_usuario: Datatypes.INTEGER,
             qtd_neg: Datatypes.DOUBLE,

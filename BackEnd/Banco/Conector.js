@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+var Sequelize = require('sequelize');
 
 var sequelize = new Sequelize('mydb', 'root', '123456',
     {

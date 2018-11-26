@@ -1,22 +1,22 @@
 module.exports = function (model) {
 
-    const _ = require('lodash');
-    const express = require('express');
-    const app = express();
-    const port = 9000;
-    const router = express.Router();
+    var _ = require('lodash');
+    var express = require('express');
+    var app = express();
+    var port = 9000;
+    var router = express.Router();
 
-    const ProducaoServices = require('../Services/ProducaoServices');
-    let producaoServices = new ProducaoServices(model);
+    var ProducaoServices = require('../Services/ProducaoServices');
+    var producaoServices = new ProducaoServices(model);
 
-    const ProdutoServices = require('../Services/ProdutoServices');
-    let produtoServices = new ProdutoServices(model);
+    var ProdutoServices = require('../Services/ProdutoServices');
+    var produtoServices = new ProdutoServices(model);
 
-    const ItemServices = require('../Services/ItemServices');
-    let itemServices = new ItemServices(model);
+    var ItemServices = require('../Services/ItemServices');
+    var itemServices = new ItemServices(model);
 
-    const NotasServices = require('../Services/NotasServices');
-    let notasServices = new NotasServices(model);
+    var NotasServices = require('../Services/NotasServices');
+    var notasServices = new NotasServices(model);
 
     app.use('/', router);
     app.listen(port);

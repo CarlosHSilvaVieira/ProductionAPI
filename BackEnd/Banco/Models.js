@@ -1,9 +1,9 @@
-let models = function (Conector, DataTypes) {
-    const Cabecalho = require('./tabelas/Cabecalho');
-    const Item = require('./tabelas/Item');
-    const Producao = require('./tabelas/Producao');
-    const Produto = require('./tabelas/Produto');
-    const Qualidade = require('./tabelas/Qualidade')
+var models = function (Conector, DataTypes) {
+    var Cabecalho = require('./tabelas/Cabecalho');
+    var Item = require('./tabelas/Item');
+    var Producao = require('./tabelas/Producao');
+    var Produto = require('./tabelas/Produto');
+    var Qualidade = require('./tabelas/Qualidade')
 
     this.cabecalho = new Cabecalho(Conector, DataTypes);
     this.item = new Item(Conector, DataTypes);

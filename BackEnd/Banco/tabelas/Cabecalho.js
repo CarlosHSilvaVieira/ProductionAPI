@@ -1,6 +1,6 @@
 module.exports = function (sequelize, Datatypes) {
 
-    const cabecalho = sequelize.define('Cabecalho',
+    var cabecalho = sequelize.define('Cabecalho',
         {
             nunota: {
                 type: Datatypes.INTEGER,

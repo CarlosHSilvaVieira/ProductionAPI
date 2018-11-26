@@ -1,7 +1,7 @@
-let ItemServices = function (model) {
+var ItemServices = function (model) {
 
-    const sequelize = require('sequelize');
-    let _ = require('lodash');
+    var sequelize = require('sequelize');
+    var _ = require('lodash');
 
     this.getQtdItemNegociado = function (idItem) {
         return model.item.findAll({

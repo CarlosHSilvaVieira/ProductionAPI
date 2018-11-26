@@ -1,7 +1,7 @@
-let NotasServices = function (model) {
+var NotasServices = function (model) {
 
-    const sequelize = require('sequelize');
-    let _ = require('lodash');
+    var sequelize = require('sequelize');
+    var _ = require('lodash');
 
     this.getAllNotas = function () {
         return model.cabecalho.findAll({

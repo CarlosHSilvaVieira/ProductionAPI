@@ -1,7 +1,7 @@
-let ProducaoServices = function (model) {
+var ProducaoServices = function (model) {
 
-    const sequelize = require('sequelize');
-    let _ = require('lodash');
+    var sequelize = require('sequelize');
+    var _ = require('lodash');
 
     this.getProducaoByUsuario = function (usuario) {
         return model.producao.findAll({

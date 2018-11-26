@@ -1,7 +1,7 @@
-const Conector = require('./BackEnd/Banco/Conector');
-const Sequelize = require('sequelize');
-const Model = require('./BackEnd/Banco/Models');
-const AppRouter = require('./BackEnd/Rotas/AppRouter');
+var Conector = require('./BackEnd/Banco/Conector');
+var Sequelize = require('sequelize');
+var Model = require('./BackEnd/Banco/Models');
+var AppRouter = require('./BackEnd/Rotas/AppRouter');
 
-const model = new Model(Conector, Sequelize.DataTypes);
-const appRouter = new AppRouter(model);
+var model = new Model(Conector, Sequelize.DataTypes);
+var appRouter = new AppRouter(model);
