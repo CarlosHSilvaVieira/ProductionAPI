@@ -1,16 +1,17 @@
 {
-  "name": "SistemaProducao",
+  "name": "sistemaproducao",
   "version": "1.0.0",
-  "description": "",
+  "description": "SistemaProducao",
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node App.js"
+    "start": "nodemon App.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andrew",
   "license": "ISC",
   "dependencies": {
+    "@types/geojson": "^7946.0.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
@@ -20,6 +21,15 @@
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
+    "express": "^4.16.4",
     "nodemon": "^1.18.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosHSilvaVieira/ProductionAPI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CarlosHSilvaVieira/ProductionAPI/issues"
+  },
+  "homepage": "https://github.com/CarlosHSilvaVieira/ProductionAPI#readme"
 }
