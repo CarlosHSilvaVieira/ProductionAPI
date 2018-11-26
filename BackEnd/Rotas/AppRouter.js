@@ -24,7 +24,7 @@ module.exports = function (model) {
     //////API DE PRODUCAO
 
     router.get('/', function(req, res, next) {
-        res.status(200).send(`Production's API running on port ${port} `)
+        res.status(200).send(`Production's API running`)
     })
 
 
