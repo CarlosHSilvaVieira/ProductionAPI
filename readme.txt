@@ -27,4 +27,4 @@ espere a instalação de todos os pacotes ser finalizada e passe para o próximo
 
 Em um terminal dentro da ppasta do projeto execute o comando
 
-D:\Desktop\SistemaProducao> node App.js
+D:\Desktop\SistemaProducao> npm run start
