@@ -1,3 +1,4 @@
+require('dotenv').config()
 var Conector = require('./BackEnd/Banco/Conector');
 var Sequelize = require('sequelize');
 var Model = require('./BackEnd/Banco/Models');
