@@ -18,6 +18,9 @@ module.exports = function (model) {
     var NotasServices = require('../Services/NotasServices');
     var notasServices = new NotasServices(model);
 
+    var QualidadeServices = require('../Services/QualidadeServices');
+    var qualidadeServices = new QualidadeServices(model);
+
     app.use('/', router);
     app.listen(port);
 
@@ -153,4 +156,13 @@ module.exports = function (model) {
             res.json(result);
         }); 
     });
+
+
+    // SOLICITAÇÃO VENDAS
+    router.get('/getAllQualidade', function (req, res) {
+        qualidadeServices.getAllQualidade().then(function(result) {
+            res.json(result);
+        }); 
+    });
+
 }
