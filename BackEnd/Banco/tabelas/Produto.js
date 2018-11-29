@@ -2,7 +2,7 @@ module.exports = function (sequelize, Datatypes) {
 
     var produto = sequelize.define('Produto',
         {
-            id_prod: {
+            id_produto: {
                 type: Datatypes.INTEGER,
                 primaryKey: true
             },

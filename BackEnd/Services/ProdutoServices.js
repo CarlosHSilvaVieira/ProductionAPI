@@ -13,7 +13,7 @@ var ProdutoServices = function (model) {
     }
     this.getAllProdutos = function () {
         return model.produto.findAll({
-            attributes: ['descricao', 'usoprod', 'id_prod']
+            attributes: ['descricao', 'usoprod', 'id_produto']
         });
     }
     this.getProdutoById = function (idProduto) {
