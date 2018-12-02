@@ -73,6 +73,20 @@ module.exports = function (model) {
         });
     });
 
+    //SOLICITAÇÃO Financeiro
+    router.get('/getAllMateriaPrima', function (req, res) {
+        produtoServices.getAllProduto().then(function (result) {
+            let response = [];
+            for(let i = 0   ; i < result.length; i++){
+                if(result[i].descricao !=='COQUE-BENEFICIADO'){
+                    response.push(result[i]);
+                }
+            }
+            res.json(response);
+        });
+    });
+
+
     router.get('/getProducaoByUsuario', function (req, res) {
         producaoServices.getProducaoByUsuario(req.query.usuario).then(function (result) {
             res.json(result);
