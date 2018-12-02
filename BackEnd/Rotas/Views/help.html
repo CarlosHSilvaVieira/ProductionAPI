@@ -1,0 +1,89 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .page{
+            padding: 30px;
+            background-color: #fff;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .card-page{
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            border: 1px solid #dddc;
+            background-color: #eee;
+            box-shadow: 3px 3px #bbb;
+        }
+        .table-custom{
+            font-size: 12px;
+        }
+        h2{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="card-page">
+            <h2>Produção e Manufatura - Help</h2>
+
+            <div class="table-responsive">
+            <table class="table table-dark table-custom" style="width:100%">
+                <tbody>
+                    <tr>
+                    <th scope="row">http://sigepm.azurewebsites.net/[url]?[parametro=valor&amp;parametro2=valor2...]</th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-dark table-custom">
+                <thead>
+                    <tr>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Parâmetro</th>
+                    <th scope="col">Método</th>
+                    <th scope="col">Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Tipos de Qualidade</th>
+                        <td>getAllQualidade</td>
+                        <td>-</td>
+                        <td>GET</td>
+                        <td>[{"id_qualidade":1, "vlr_qualidade":0.5} ...]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Busca todos os produtos</th>
+                        <td>getAllProduto</td>
+                        <td>-</td>
+                        <td>GET</td>
+                        <td>[{"descricao":"Nome", "usoprod":"MP", "id_produto":1}...]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Quantidade produzida agrupada por mês e turno</th>
+                        <td>getAllProducaoPorMesTurno</td>
+                        <td>-</td>
+                        <td>GET</td>
+                        <td>[{"quantidade":60, "mes":"Novembro", "turno":"Manhã", "nomeProduto":"Coque-Beneficiado"}...]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Quantidade produzida agrupada por mês</th>
+                        <td>getAllProducaoPorMes</td>
+                        <td>-</td>
+                        <td>GET</td>
+                        <td>[{"quantidade":120, "mes":"Novembro", "nomeProduto":"Coque-Beneficiado"}...]</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+

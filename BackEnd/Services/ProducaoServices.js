@@ -3,6 +3,20 @@ var ProducaoServices = function (model) {
     var sequelize = require('sequelize');
     var _ = require('lodash');
 
+    this.getQuantidadeProducaoAgrupadoPorTurnoMes = function () {
+        return model.producao.findAll({
+            attributes: [[sequelize.fn('sum',sequelize.col('qtd_neg')), 'quantidade'], 'mes', 'turno'],
+            group: ['mes', 'turno'],
+        });
+    };
+
+    this.getQuantidadeProducaoAgrupadoPorMes = function () {
+        return model.producao.findAll({
+            attributes: [[sequelize.fn('sum',sequelize.col('qtd_neg')), 'quantidade'], 'mes'],
+            group: ['mes'],
+        });
+    };
+
     this.getProducaoByUsuario = function (usuario) {
         return model.producao.findAll({
             attributes: ['qtd_neg'],
@@ -21,7 +35,7 @@ var ProducaoServices = function (model) {
     }
     this.getProducaoByTurno = function (turno) {
         return model.producao.findAll({
-            attributes: ['qtd_neg'],
+            attributes: ['qtd_neg', 'data_producao'],
             where: {
                 turno: turno
             }

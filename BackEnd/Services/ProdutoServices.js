@@ -11,7 +11,7 @@ var ProdutoServices = function (model) {
             }
         });
     }
-    this.getAllProdutos = function () {
+    this.getAllProduto = function () {
         return model.produto.findAll({
             attributes: ['descricao', 'usoprod', 'id_produto']
         });

@@ -5,6 +5,8 @@ module.exports = function (model) {
     var app = express();
     var port = process.env.PORT || 3000;
     var router = express.Router();
+    var path    = require("path");
+
 
     var ProducaoServices = require('../Services/ProducaoServices');
     var producaoServices = new ProducaoServices(model);
@@ -22,6 +24,7 @@ module.exports = function (model) {
     var qualidadeServices = new QualidadeServices(model);
 
     app.use('/', router);
+    app.use(express.static(__dirname + '/View'));
     app.listen(port);
 
     //////API DE PRODUCAO
@@ -30,13 +33,45 @@ module.exports = function (model) {
         res.status(200).send(`Production's API running`)
     })
 
+    router.get('/help', (req, res, next) => {
+        res.sendFile(path.join(__dirname+'/Views/help.html'));
+     })    
+     
 
-    /*            TODO 
+    // SOLICITAÇÃO VENDAS
+    router.get('/getAllQualidade', function (req, res) {
+        qualidadeServices.getAllQualidade().then(function(result) {
+            res.json(result);
+        }); 
+    });
 
-        get producao por turno e mes
+    //SOLICITAÇÃO RH
 
+    router.get('/getAllProducaoPorMesTurno', function (req, res) {
+        producaoServices.getQuantidadeProducaoAgrupadoPorTurnoMes().then(function (result) {
+    
+            let response = [];
+            for(let i = 0; i < result.length; i++){
+                response[i] = result[i].dataValues;
+                response[i].nomeProduto = "Coque-Beneficiado";
+            }
+                        
+            res.json(response);
+        });
+    });
 
-    */
+    router.get('/getAllProducaoPorMes', function (req, res) {
+        producaoServices.getQuantidadeProducaoAgrupadoPorMes().then(function (result) {
+
+            let response = [];
+            for(let i = 0; i < result.length; i++){
+                response[i] = result[i].dataValues;
+                response[i].nomeProduto = "Coque-Beneficiado";
+            }
+                        
+            res.json(response);
+        });
+    });
 
     router.get('/getProducaoByUsuario', function (req, res) {
         producaoServices.getProducaoByUsuario(req.query.usuario).then(function (result) {
@@ -80,8 +115,8 @@ module.exports = function (model) {
         });
     });
 
-    router.get('/getAllProdutos', function (req, res) {
-        produtoServices.getAllProdutos().then(function (result) {
+    router.get('/getAllProduto', function (req, res) {
+        produtoServices.getAllProduto().then(function (result) {
             res.json(result);
         });
     });
@@ -156,13 +191,4 @@ module.exports = function (model) {
             res.json(result);
         }); 
     });
-
-
-    // SOLICITAÇÃO VENDAS
-    router.get('/getAllQualidade', function (req, res) {
-        qualidadeServices.getAllQualidade().then(function(result) {
-            res.json(result);
-        }); 
-    });
-
 }

@@ -7,6 +7,7 @@ module.exports = function (sequelize, Datatypes) {
             qtd_mp: Datatypes.DOUBLE,
             data_producao: Datatypes.DATE,
             turno: Datatypes.STRING(10),
+            mes: Datatypes.STRING(10),
             
             id_producao: {
                 type: Datatypes.INTEGER,
