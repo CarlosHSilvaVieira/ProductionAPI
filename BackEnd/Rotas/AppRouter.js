@@ -23,6 +23,9 @@ module.exports = function (model) {
     var QualidadeServices = require('../Services/QualidadeServices');
     var qualidadeServices = new QualidadeServices(model);
 
+    var PedidosServices = require('../Services/PedidosServices');
+    var pedidosServices = new PedidosServices(model);
+
     app.use('/', router);
     app.use(express.static(__dirname + '/View'));
     app.listen(port);
@@ -35,20 +38,7 @@ module.exports = function (model) {
 
     router.get('/help', (req, res, next) => {
         res.sendFile(path.join(__dirname+'/Views/help.html'));
-     })    ;
-
-    router.get('/getProducaoByMesTurno', function (req, res) {
-        producaoServices.getProducaoByMesTurno(req.query.ano, req.query.mes).then(function (result) {
-        let response=0;
-
-       for (let i = 0; i <= result.length ; i++) {
-           response += result[i].qtd_neg;
-           
-                  }
-
-            res.json(response);
-        });
-    });
+     })    ;    
 
      
 
@@ -210,6 +200,16 @@ module.exports = function (model) {
             res.json(result);
         });
     });
+
+
+///////////API PEDIDOS  
+
+router.get('/getAllPedidos', function (req, res) {
+        pedidosServices.getAllPedidos().then(function (result) {
+            res.json(result);
+        });
+    });
+
 
 
     //////API NOTAS
