@@ -47,6 +47,13 @@ var ItemServices = function (model) {
         }); 
     }
 
+    this.getEstoqueMP = function(){
+        return model.item.findAll({
+            attributes: ['qtd_neg', 'ent_sai'], 
+            where:{id_produto:1}
+        });
+    }
+
     /*Lista de produtos produzidos no mes 
     {tipoProduto: ""String"", nome: ""string"", mes: ""Int"", qnt: ""Double""}
 */

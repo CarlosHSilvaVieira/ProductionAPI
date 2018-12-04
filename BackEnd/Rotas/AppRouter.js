@@ -31,11 +31,25 @@ module.exports = function (model) {
 
     router.get('/', function(req, res, next) {
         res.status(200).send(`Production's API running`)
-    })
+    });
 
     router.get('/help', (req, res, next) => {
         res.sendFile(path.join(__dirname+'/Views/help.html'));
-     })    
+     })    ;
+
+    router.get('/getProducaoByMesTurno', function (req, res) {
+        producaoServices.getProducaoByMesTurno(req.query.ano, req.query.mes).then(function (result) {
+        let response=0;
+
+       for (let i = 0; i <= result.length ; i++) {
+           response += result[i].qtd_neg;
+           
+                  }
+
+            res.json(response);
+        });
+    });
+
      
 
     // SOLICITAÇÃO VENDAS
@@ -79,6 +93,7 @@ module.exports = function (model) {
             let response = [];
             for(let i = 0   ; i < result.length; i++){
                 if(result[i].descricao !=='COQUE-BENEFICIADO'){
+
                     response.push(result[i]);
                 }
             }
@@ -172,6 +187,23 @@ module.exports = function (model) {
             res.json(result);
         });
     });
+
+    router.get('/getEstoqueMP', function (req, res) {
+        itemServices.getEstoqueMP().then(function (result) {
+            let response = [];
+            let aux =0;
+            for(let i = 0; i < result.length; i++){
+                response[i] = result[i].dataValues;
+                aux+=(response[i].qtd_neg * response[i].ent_sai) ;
+                console.log(aux);
+            }
+            res.json(aux);
+        });
+    });
+
+
+
+    /*getEstoqueMP*/
 
      router.get('/getProducaoItemByMes', function (req, res) {
         itemServices.getProducaoItemByMes(req.query.ano, req.query.mes).then(function (result) {

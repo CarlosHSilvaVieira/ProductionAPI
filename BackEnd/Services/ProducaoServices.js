@@ -55,8 +55,13 @@ var ProducaoServices = function (model) {
         });
     }
 
+    
+
     /*Lista de produtos produzidos no mes 
     {tipoProduto: ""String"", nome: ""string"", mes: ""Int"", qnt: ""Double""}
 */
 }
 module.exports = ProducaoServices;
+
+
+/*http://localhost:3000/getProducaoByMesTurno?ano=2018,mes=11*/
