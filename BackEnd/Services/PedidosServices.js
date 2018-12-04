@@ -9,5 +9,9 @@ this.getAllPedidos = function(){
         });
     }
 
+    this.postPedidos = function(vetPedidos){
+    	model.pedidos.bulkCreate(vetPedidos);
+    }
+
 }
 module.exports = PedidosServices;

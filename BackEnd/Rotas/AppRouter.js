@@ -178,6 +178,7 @@ module.exports = function (model) {
         });
     });
 
+    //Api que apresenta o estoque atual de materia prima
     router.get('/getEstoqueMP', function (req, res) {
         itemServices.getEstoqueMP().then(function (result) {
             let response = [];
@@ -192,8 +193,7 @@ module.exports = function (model) {
     });
 
 
-
-    /*getEstoqueMP*/
+    
 
      router.get('/getProducaoItemByMes', function (req, res) {
         itemServices.getProducaoItemByMes(req.query.ano, req.query.mes).then(function (result) {
@@ -234,6 +234,15 @@ router.get('/getAllPedidos', function (req, res) {
 
     router.get('/getNotasByTipoMovimentacao', function (req, res) {
         notasServices.getNotasByTipoMovimentacao(req.query.tipMov).then(function(result) {
+            res.json(result);
+        }); 
+    });
+
+
+
+    ///API PEDIDOS
+    router.post('/postPedidos', function (req, res) {
+        pedidosServices.postPedidos(req.body.IdPedido,req.body.quantidade, req.body.dataPedido).then(function(result) {
             res.json(result);
         }); 
     });
