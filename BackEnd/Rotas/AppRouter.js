@@ -98,6 +98,15 @@ module.exports = function (model) {
         });
     });
 
+    router.get('/getPedidosFinanceiro', function (req, res) {
+        //pedidosServices.teste();
+        var reques = require('request');
+        var aux;
+        reques('http://sigemv.azurewebsites.net/api/Pedidos', function (error, response, body) {
+            res.json(JSON.parse(body));
+        });
+    });
+
     /*router.get('/getProducaoByData', function (req, res) {
         producaoServices.getProducaoByData(req.query.data).then(function (result) {
             res.json(result);
